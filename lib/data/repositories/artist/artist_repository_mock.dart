@@ -1,4 +1,6 @@
 import '../../../model/artist/artist.dart';
+import '../../../model/comment/comment.dart';
+import '../../../model/songs/song.dart';
 import 'artist_repository.dart';
 
 class ArtistRepositoryMock implements ArtistRepository {
@@ -19,5 +21,20 @@ class ArtistRepositoryMock implements ArtistRepository {
         orElse: () => throw Exception("No artist with id $id in the database"),
       );
     });
+  }
+
+  @override
+  Future<List<Song>> fetchArtistSongs(String artistId) async {
+    return [];
+  }
+
+  @override
+  Future<List<Comment>> fetchArtistComments(String artistId) async {
+    return [];
+  }
+
+  @override
+  Future<void> postComment(String artistId, String text) async {
+    // No-op for mock
   }
 }
